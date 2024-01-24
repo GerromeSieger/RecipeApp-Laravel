@@ -1,0 +1,406 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "RecipeApp",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/users/register": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "13565b949a19a5836c3fe9f30a37dbc6",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "username",
+                                    "password",
+                                    "number"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "victor@email.com"
+                                    },
+                                    "username": {
+                                        "type": "string",
+                                        "example": "victor"
+                                    },
+                                    "number": {
+                                        "type": "string",
+                                        "example": "08108903913"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/users/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "b5c0481a14cf25e2840c6c9dd1e4f3d0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "victor@email.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/users/getall": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "f825b80ff76f98eb094848e2ab32e43c",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/users/oneuser": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "2f8990baa189cb749d813534de9a427a",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users/update": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "aa9a86ae11dcc722b14dfde05c3489b7",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "gerrome"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users/delete": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "d57002837e84d1714dc7d144d06a9a63",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users/changepassword": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "cd0db6d56c084a8aec14b27347470a13",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "old_password",
+                                    "new_password"
+                                ],
+                                "properties": {
+                                    "old_password": {
+                                        "type": "string",
+                                        "example": "oldpass123"
+                                    },
+                                    "new_password": {
+                                        "type": "string",
+                                        "example": "newpass456"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/recipes/userrecipes": {
+            "get": {
+                "tags": [
+                    "Recipe"
+                ],
+                "operationId": "0dbd42c11342721877b5346a13644bf4",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/recipes/onerecipe/{recipeId}": {
+            "get": {
+                "tags": [
+                    "Recipe"
+                ],
+                "operationId": "c5da1be15907e1d8adeb0caa282c3500",
+                "parameters": [
+                    {
+                        "name": "recipeId",
+                        "in": "path",
+                        "description": "ID of the recipe",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/recipes/create": {
+            "post": {
+                "tags": [
+                    "Recipe"
+                ],
+                "operationId": "f9c70a74d8ce6b92ed00904f1285a929",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "description",
+                                    "ingredients"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Pasta"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "This is my pasta recipe"
+                                    },
+                                    "ingredients": {
+                                        "type": "list",
+                                        "example": [
+                                            "Salt",
+                                            "pepper"
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/recipes/edit/{recipeId}": {
+            "put": {
+                "tags": [
+                    "Recipe"
+                ],
+                "operationId": "7389ec34669a6195931d0b14fb1b3c89",
+                "parameters": [
+                    {
+                        "name": "recipeId",
+                        "in": "path",
+                        "description": "ID of the recipe",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "gerrome"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/recipes/delete/{recipeId}": {
+            "delete": {
+                "tags": [
+                    "Recipe"
+                ],
+                "operationId": "ed8be415891e816e7f890d74aa6f434f",
+                "parameters": [
+                    {
+                        "name": "recipeId",
+                        "in": "path",
+                        "description": "ID of the recipe",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
